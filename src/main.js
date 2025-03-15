@@ -92,7 +92,7 @@ const createScene = function () {
   BABYLON.SceneLoader.ImportMeshAsync(
     '',
     'src/Models/',
-    'MasterSword_CellShaded.glb',
+    'MasterSword_CellShaded_ModApplied.glb',
     scene
   );
 
