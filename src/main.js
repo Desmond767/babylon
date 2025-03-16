@@ -1,5 +1,6 @@
 import * as BABYLON from '@babylonjs/core';
-import '@babylonjs/loaders/glTF';
+import {registerBuiltInLoaders} from '@babylonjs/loaders/dynamic';
+registerBuiltInLoaders();
 
 const canvas = document.getElementById('renderCanvas');
 
@@ -37,64 +38,7 @@ const createScene = function () {
   camera.useAutoRotationBehavior = true;
   camera.idleRotationWaitTime = 50000;
 
-
-  // const box = new BABYLON.MeshBuilder.CreateBox('myBox', {
-  //   size: 0.2,
-  //   width: 2,
-  //   height: 0.05,
-  //   depth: 0.5,
-  //   faceColors: [
-  //     new BABYLON.Color4(1, 0, 0, 1),
-  //     BABYLON.Color3.Green()
-  //   ]
-  // });
-
-  // const sphere = new BABYLON.MeshBuilder.CreateSphere('mySphere', {
-  //   segments: 50,
-  //   // diameter: 0.3,
-  //   // diameterY: 0.4,
-  // }, scene);
-
-  // const sphereMaterial = new BABYLON.StandardMaterial();
-  // sphere.material = sphereMaterial;
-
-  // sphereMaterial.diffuseTexture = new BABYLON.Texture('src/Images/iceland_heightmap.png');
-
-  //sphereMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);
-  // sphereMaterial.specularColor = new BABYLON.Color3(1, 0, 0);
-
-  // sphereMaterial.ambientColor = new BABYLON.Color3(0, 1, 0);
-  // scene.ambientColor = new BABYLON.Color3(0, 1, 0);
-
-  // sphereMaterial.emissiveColor = new BABYLON.Color3(1, 0, 0);
-
-  // sphereMaterial.alpha = 0.2;
-
-  // sphereMaterial.wireframe = true;
-
-  // const ground = new BABYLON.MeshBuilder.CreateGround('', {
-  //   height: 10,
-  //   width: 10,
-  //   subdivisions: 5,
-  //   subdivisionsX: 10,
-
-  // });
-
-  // ground.material = new BABYLON.StandardMaterial();
-  // ground.material.wireframe = true;
-
-  // const groundFromHM = new BABYLON.MeshBuilder.CreateGroundFromHeightMap('', 'src/Images/iceland_heightmap.png', {
-  //   height: 20,
-  //   width: 20,
-  //   subdivisions: 200,
-  // });
-
-  BABYLON.SceneLoader.ImportMeshAsync(
-    '',
-    'src/Models/',
-    'MasterSword_CellShaded_ModApplied.glb',
-    scene
-  );
+  BABYLON.SceneLoader.ImportMeshAsync('', 'src/Models/', 'MasterSword_CellShaded_ModApplied.obj', scene);
 
   return scene;
 }
